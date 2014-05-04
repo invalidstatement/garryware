@@ -37,7 +37,7 @@ function ENT:PhysicsCollide( data, physobj )
 	
 	local effectdata = EffectData( )
 		effectdata:SetOrigin( self.Entity:GetPos( ) + data.HitNormal * 16 )
-		effectdata:SetNormal( (self.Entity:GetPos() - data.HitPos):Normalize() )
+		effectdata:SetNormal( (self.Entity:GetPos() - data.HitPos):GetNormal() )
 	util.Effect( "waveexplo", effectdata, true, true )
 	
 	--Old fucking hard rocketjump code by Hurricaaane
