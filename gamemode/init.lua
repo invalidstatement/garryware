@@ -615,14 +615,24 @@ function IncludeMinigames()
 	local authors = {}
 	local str = ""
 	
-	for files,folders in pairs( file.Find(path.."*.lua", "LUA") ) do
+	--[[for files,folders in pairs( file.Find(path.."*.lua", "LUA") ) do
 		WARE = {}
 
-		function k1,v1 in pairs(files) do
+		for k1,v1 in pairs(files) do
 			include(path..v1)
 			local gamename = string.Replace(v1, ".lua", "")
 			ware_mod.Register(gamename, WARE)
 		end
+	end--]]
+
+	local files, folders = file.Find(path .. "*", "LUA")
+
+	for k,v in pairs(files) do
+		WARE = {}
+
+		include(path .. v)
+		local _gameName = string.Replace(v, ".lua", "")
+		ware_mod.Register(_gameName, WARE)
 	end
 	
 	print("__________\n")
