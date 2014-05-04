@@ -1,4 +1,4 @@
-"Gamemode"
+"garryware"
 {
 	"name"		"GarryWare (v1.1902)"
 	"version"	"2"

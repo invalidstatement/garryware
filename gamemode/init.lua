@@ -615,14 +615,14 @@ function IncludeMinigames()
 	local authors = {}
 	local str = ""
 	
-	for _,file in pairs( file.FindInLua(path.."*.lua") ) do
+	for files,folders in pairs( file.Find(path.."*.lua", "LUA") ) do
 		WARE = {}
-		
-		--AddCSLuaFile(path..file)
-		include(path..file)
-		
-		local gamename = string.Replace(file, ".lua", "")
-		ware_mod.Register(gamename, WARE)
+
+		function k1,v1 in pairs(files) do
+			include(path..v1)
+			local gamename = string.Replace(v1, ".lua", "")
+			ware_mod.Register(gamename, WARE)
+		end
 	end
 	
 	print("__________\n")
