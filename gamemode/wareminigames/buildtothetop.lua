@@ -97,6 +97,6 @@ function WARE:GravGunPunt(pl,ent)
 		ent:EmitSound("doors/vent_open3.wav")
 		GAMEMODE:MakeDisappearEffect( ent:GetPos() )
 		
-		timer.Simple(1.7, RespawnSawblade, ent)
+		timer.Simple(1.7, function() RespawnSawblade(ent) end)
 	end
 end

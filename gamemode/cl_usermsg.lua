@@ -90,7 +90,7 @@ local function EnableMusic( optiLoopToPlay )
 		gws_AmbientMusic[optiLoopToPlay]:Play()
 		gws_AmbientMusic_dat[optiLoopToPlay]._IsPlaying = true
 		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.1, 0 )
-		gws_AmbientMusic[optiLoopToPlay]:ChangePitch( GAMEMODE:GetSpeedPercent() )
+		gws_AmbientMusic[optiLoopToPlay]:ChangePitch( GAMEMODE:GetSpeedPercent(), 0 )
 		timer.Simple( GAMEMODE.WADAT.StartFlourishLength * 0.7 , EnableMusicVolume, optiLoopToPlay )
 		
 	end
@@ -114,6 +114,8 @@ local function DisableMusic()
 end
 
 local function PlayEnding( musicID )
+	if not GAMEMODE.WASND.TBL_GlobalWareningEpic then return end
+
 	local dataRef = GAMEMODE.WADAT.TBL_GlobalWareningEpic[musicID]
 	
 	LocalPlayer():EmitSound( GAMEMODE.WASND.TBL_GlobalWareningEpic[musicID] , 60, GAMEMODE:GetSpeedPercent() )
@@ -125,7 +127,7 @@ local function PlayEnding( musicID )
 		
 	end
 	
-	timer.Simple( dataRef.Length, EnableMusic, 1 )
+	timer.Simple( dataRef.Length, function() EnableMusic(1) end )
 end
 
 local function NextGameTimes( m )
@@ -343,8 +345,8 @@ usermessage.Hook( "EndOfGamemode", EndOfGamemode )
 local function SpecialFlourish( m )
 	local musicID = m:ReadChar()
 	local dataRef = GAMEMODE.WADAT.TBL_GlobalWareningEpic[musicID]
-	timer.Simple( dataRef.StartDalay + dataRef.MusicFadeDelay, function() gws_AmbientMusic[1]:ChangeVolume( 0.0 ) end )
-	timer.Simple( dataRef.StartDalay, PlayEnding, musicID )
+	timer.Simple( dataRef.StartDalay + dataRef.MusicFadeDelay, function() gws_AmbientMusic[1]:ChangeVolume( 0.0, 0 ) end )
+	timer.Simple( dataRef.StartDalay, function() PlayEnding(musicID) end )
 end
 usermessage.Hook( "SpecialFlourish", SpecialFlourish )
 

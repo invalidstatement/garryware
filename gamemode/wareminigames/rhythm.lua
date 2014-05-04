@@ -76,7 +76,7 @@ function WARE:Initialize()
 	self.CurrentRhythm = 1
 	
 	for i=1,self.TestTempo do
-		timer.Simple( i*60/self.Tempo, self.RhythmSignal, self )
+		timer.Simple( i*60/self.Tempo, function() self:RhythmSignal() end )
 		
 	end
 	umsg.Start("SpecialFlourish")
@@ -92,7 +92,7 @@ function WARE:StartAction()
 	end
 	
 	for i=1,self.NumberSpawns do
-		timer.Simple( i*60/self.Tempo - self.TolerenceSecondsBound, self.OpenForRhythm, self )
+		timer.Simple( i*60/self.Tempo - self.TolerenceSecondsBound, function() self:OpenForRhythm() end )
 		
 	end
 	
@@ -103,8 +103,8 @@ end
 
 function WARE:OpenForRhythm( )
 	self.IsOpenForRhythm = true
-	timer.Simple( self.TolerenceSeconds, self.LateForRhythm, self )
-	timer.Simple( self.TolerenceSecondsBound, self.RhythmSignal, self )
+	timer.Simple( self.TolerenceSeconds, function() self:LateForRhythm() end )
+	timer.Simple( self.TolerenceSecondsBound, function() self:RhythmSignal() end )
 	
 end
 

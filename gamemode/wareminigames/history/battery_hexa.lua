@@ -235,7 +235,7 @@ function WARE:Think()
 							
 							GAMEMODE:MakeAppearEffect(v:GetPos())
 							
-							timer.Simple(0.05, PlugBatteryIn, v, w)
+							timer.Simple(0.05, function() PlugBatteryIn(v, w) end)
 						end
 					end
 				end

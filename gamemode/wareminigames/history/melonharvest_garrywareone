@@ -29,7 +29,7 @@ local function EntityCaught(trigger,ent)
                         cart.CartOwner:WarePlayerDestinyWin()
                         cart.CartOwner:StripWeapons()
                         trigger:Remove()
-                        timer.Simple(1, RemoveCartVictory, cart)
+                        timer.Simple(1, function() RemoveCartVictory(cart) end)
                 end
         end
 end

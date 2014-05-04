@@ -22,7 +22,7 @@ function WARE:FlashSpawns( iteration, delay )
 		GAMEMODE:MakeAppearEffect( ent:GetPos() )
 	end
 	if (iteration > 0) then
-		timer.Simple( delay , self.FlashSpawns, self , iteration - 1, delay )
+		timer.Simple(delay, function() self:FlashSpawns(iteration - 1, delay) end)
 	end
 	
 end

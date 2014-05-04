@@ -51,7 +51,7 @@ function WARE:PlayCrate(i)
 	
 	GAMEMODE:MakeAppearEffect( prop:GetPos() )
 	
-	timer.Simple(0.5, self.ResetCrate, self, i)
+	timer.Simple(0.5, function() self:ResetCrate(i) end)
 end
 
 -----------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ function WARE:Initialize()
 	self.Sequence = {}
 	for i=1,numberSpawns do
 		self.Sequence[i] = table.remove(sequence, math.random(1,#sequence))
-		timer.Simple(delay+i-1, self.PlayCrate, self, self.Sequence[i])
+		timer.Simple(delay + i - 1, function() self:PlayCrate(self.Sequence[i]) end)
 	end
 end
 

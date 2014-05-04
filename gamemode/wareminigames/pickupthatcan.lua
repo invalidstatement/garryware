@@ -16,7 +16,7 @@ function WARE:FlashCans( iteration, delay )
 		GAMEMODE:MakeAppearEffect( ent:GetPos() )
 	end
 	if (iteration > 0) then
-		timer.Simple( delay , self.FlashCans, self , iteration - 1, delay )
+		timer.Simple(delay, function() self:FlashCans(iteration - 1, delay) end)
 	end
 end
 

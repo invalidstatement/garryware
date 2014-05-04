@@ -107,7 +107,7 @@ function WARE:StartAction()
 		ply:Give("sware_pistol")
 		ply:GiveAmmo(12, "Pistol", true)
 	end
-	timer.Create("WARETIMERrollingcolor", 0.7, 0, self.SwitchAllToNextColor, self)
+	timer.Create("WARETIMERrollingcolor", 0.7, 0, function() self:SwitchAllToNextColor() end)
 end
 
 function WARE:EndAction()
@@ -123,7 +123,7 @@ function WARE:EntityTakeDamage( ent, inf, att, amount, info )
 	if self.MagicSequence[ent.SequenceID] == self.SelectedColorID then
 		att:ApplyWin( )
 		ent.HitCorrect = true
-		timer.Simple(1, RemoveProp, ent )
+		timer.Simple(1, function() RemoveProp(ent) end)
 	else
 		att:ApplyLose( )
 	end

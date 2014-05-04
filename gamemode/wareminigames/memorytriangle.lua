@@ -75,8 +75,8 @@ function WARE:Initialize()
 		self.Crates[i].AssociatedText:SetEntityInteger(previousnumber)
 	end
 	
-	timer.Simple(0.1, self.SendColors, self)
-	timer.Simple(3.5, self.ReleaseAllCrates, self)
+	timer.Simple(0.1, function() self:SendColors() end)
+	timer.Simple(3.5, function() self:ReleaseAllCrates() end)
 end
 
 function WARE:SendColors()
