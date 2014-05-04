@@ -239,7 +239,10 @@ function WARE:Think()
         end
 end
 
-function WARE:EntityTakeDamage(ent,inf,att,amount,info)
+function WARE:EntityTakeDamage(ent,dmginfo)
+        local inf = dmginfo:GetInflictor()
+        local att = dmginfo:GetAttacker()
+        local amount = dmginfo:GetDamage()
         -- Losers shouldn't be able to trigger mines again
         if not att:IsPlayer() or amount<10 or self.Losers[att] then return end
        

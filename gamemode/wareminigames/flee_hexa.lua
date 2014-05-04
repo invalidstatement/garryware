@@ -97,8 +97,12 @@ function WARE:EndAction()
 
 end
 
-function WARE:EntityTakeDamage( ent, inflictor, attacker, amount)
-	if ent:IsPlayer() and ent:IsWarePlayer() and not ent:GetLocked() and attacker:IsNPC( ) then
+function WARE:EntityTakeDamage(ent,dmginfo)
+	local inf = dmginfo:GetInflictor()
+	local att = dmginfo:GetAttacker()
+	local amount = dmginfo:GetDamage()
+	
+	if ent:IsPlayer() and ent:IsWarePlayer() and not ent:GetLocked() and att:IsNPC( ) then
 		ent:ApplyLose( )
 		ent:SimulateDeath()
 		

@@ -114,8 +114,11 @@ function WARE:EndAction()
 	timer.Destroy("WARETIMERrollingcolor")
 end
 
-function WARE:EntityTakeDamage( ent, inf, att, amount, info )
-	if att:IsPlayer() == false or info:IsBulletDamage() == false then return end
+function WARE:EntityTakeDamage(ent, dmginfo)
+	local inf = dmginfo:GetInflictor()
+	local att = dmginfo:GetAttacker()
+	local amount = dmginfo:GetDamage()
+	if att:IsPlayer() == false or dmginfo:IsBulletDamage() == false then return end
 	if not ent.SequenceID then return end
 	
 	ent.LastHitDirect = CurTime()

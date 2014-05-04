@@ -594,16 +594,6 @@ function GM:InitPostEntity( )
 	
 end
 
-/*
--- (Ha3) Silent fall damage leg break sound ? Didn't work.
-function GM:EntityTakeDamage( ent, inflictor, attacker, amount, dmginfo )
-	if ent:IsPlayer() and dmginfo:IsFallDamage() then
-		dmginfo:ScaleDamage( 0 )
-		return false
-	end
-end
-*/
-
 
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////

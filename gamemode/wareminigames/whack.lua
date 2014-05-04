@@ -126,13 +126,17 @@ function WARE:EndAction()
 	
 end
 
-function WARE:EntityTakeDamage( ent, inflictor, attacker, amount )
+function WARE:EntityTakeDamage(ent, dmginfo)
+	local inf = dmginfo:GetInflictor()
+	local att = dmginfo:GetAttacker()
+	local amount = dmginfo:GetDamage()
+	
 	if GAMEMODE:GetCurrentPhase() == 2 then
 		if not IsValid( ent ) or not ent:IsPlayer() or not ent:IsWarePlayer() or ent.WARE_IsAttacker or ent:GetLocked() then return end
-		if not IsValid( attacker ) or not attacker:IsPlayer() or not attacker:IsWarePlayer() or not attacker.WARE_IsAttacker then return end
+		if not IsValid( att ) or not att:IsPlayer() or not att:IsWarePlayer() or not att.WARE_IsAttacker then return end
 		
-		attacker:ApplyWin( )
-		attacker:SendHitConfirmation()
+		att:ApplyWin( )
+		att:SendHitConfirmation()
 		ent:ApplyLose()
 		
 		ent:SimulateDeath()
