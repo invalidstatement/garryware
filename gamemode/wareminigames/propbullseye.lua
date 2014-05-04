@@ -101,7 +101,7 @@ function WARE:Think()
 			local vel = physobj:GetVelocity()
 			local speed = vel:Length()
 			if (speed > self.BVelocity) then
-				vel = vel:Normalize() * ((speed - self.BVelocity) * 0.7 + self.BVelocity)
+				vel = vel:GetNormal() * ((speed - self.BVelocity) * 0.7 + self.BVelocity)
 				physobj:SetVelocity(vel)
 			end
 		end
