@@ -45,7 +45,8 @@ local function Flag(p)
         flag:Spawn()
        
         flag:SetMaterial("models/debug/debugwhite")
-        flag:SetColor(200,0,0,255)
+        flag:SetColor(Color(200,0,0,255))
+        flag:SetRenderMode(RENDERMODE_TRANSALPHA)
        
         flag:SetParent(p)
        

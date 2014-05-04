@@ -67,7 +67,7 @@ function WARE:Initialize()
 	local entcontains = GAMEMODE:GetRandomLocations(num2, cratelist)
 	for k,v in pairs(entcontains) do
 		v.contains = true
-		--v:SetColor(255,0,0,255)
+		--v:SetColor(Color(255,0,0,255))
 	end]]--
 	
 	local ratio3 = 0.5

@@ -77,7 +77,8 @@ function WARE:StartAction()
 		prop:SetPos(newpos)
 		prop:Spawn()
 		
-		prop:SetColor(255, 255, 255, 0)
+		prop:SetColor(Color(255, 255, 255, 0))
+		prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 		prop:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 		
 		prop.IsAFile = true
@@ -107,7 +108,8 @@ function WARE:StartAction()
 	self.ZipEnt:SetPos(centerposupped)
 	self.ZipEnt:Spawn()
 	
-	self.ZipEnt:SetColor(255, 255, 255, 0)
+	self.ZipEnt:SetColor(Color(255, 255, 255, 0))
+	self.ZipEnt:SetRenderMode(RENDERMODE_TRANSALPHA)
 	self.ZipEnt:GetPhysicsObject():EnableMotion(false)
 	self.ZipEnt:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 	
@@ -195,7 +197,8 @@ function WARE:MidActionTrigger()
 		prop:SetPos(newpos)
 		prop:Spawn()
 		
-		prop:SetColor(255, 255, 255, 0)
+		prop:SetColor(Color(255, 255, 255, 0))
+		prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 		prop:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 		
 		prop.IsAMail = true

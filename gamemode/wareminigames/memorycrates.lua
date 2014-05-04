@@ -34,7 +34,8 @@ function WARE:ResetCrate(i)
 	
 	local col = CrateColours[i]
 	
-	prop:SetColor(col[1]*100, col[2]*100, col[3]*100, 100)
+	prop:SetColor(Color(col[1]*100, col[2]*100, col[3]*100, 100))
+	prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 end
 
 function WARE:PlayCrate(i)
@@ -45,7 +46,8 @@ function WARE:PlayCrate(i)
 	
 	local col = CrateColours[i]
 	
-	prop:SetColor(col[1]*255, col[2]*255, col[3]*255, 255)
+	prop:SetColor(Color(col[1]*255, col[2]*255, col[3]*255, 255))
+	prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 	prop:SetHealth(100000)
 	prop:EmitSound("buttons/button17.wav", 100, CratePitches[i]/3)
 	
@@ -81,7 +83,8 @@ function WARE:Initialize()
 		prop:SetPos(pos + Vector(0,0,64))
 		prop:Spawn()
 		
-		prop:SetColor(col[1]*100, col[2]*100, col[3]*100, 100)
+		prop:SetColor(Color(col[1]*100, col[2]*100, col[3]*100, 100))
+		prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 		prop:SetHealth(100000)
 		prop:SetMoveType(MOVETYPE_NONE)
 		prop:SetCollisionGroup(COLLISION_GROUP_WEAPON)

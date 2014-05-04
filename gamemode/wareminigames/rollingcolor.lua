@@ -38,7 +38,8 @@ function WARE:SwitchToNextColor( prop )
 	
 	local colorID = self.MagicSequence[sequenceID]
 	
-	prop:SetColor(self.PossibleColors[colorID][2].r, self.PossibleColors[colorID][2].g, self.PossibleColors[colorID][2].b, self.PossibleColors[colorID][2].a)
+	prop:SetColor(Color(self.PossibleColors[colorID][2].r, self.PossibleColors[colorID][2].g, self.PossibleColors[colorID][2].b, self.PossibleColors[colorID][2].a))
+	prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 end
 
 local function RemoveProp( prop )

@@ -25,7 +25,8 @@ local function EntityCaught(trigger,ent)
                 cart.CartOwner:SendLua("LocalPlayer():EmitSound( \"" .. GAMEMODE.WinOther .. "\" )")
                 
                 if cart.NumHarvested>=GAMEMODE.Minigame.NumHarvest then
-                        cart:SetColor(255,255,255,255)
+                        cart:SetColor(Color(255,255,255,255))
+                        cart:SetRenderMode(RENDERMODE_TRANSALPHA)
                         cart.CartOwner:WarePlayerDestinyWin()
                         cart.CartOwner:StripWeapons()
                         trigger:Remove()
@@ -49,12 +50,12 @@ function WARE:Initialize()
         -- HAXX
         -- GravGunOnPickedUp hook is broken, so we'll use this tricky workaround
         local lua_run1 = ents.Create("lua_run")
-        lua_run1:SetKeyValue('Code','CALLER:SetColor(255,255,255,100);CALLER.CartOwner=ACTIVATOR;ACTIVATOR.Cart=CALLER')
+        lua_run1:SetKeyValue('Code','CALLER:SetColor(255,255,255,100);CALLER:SetRenderMode(RENDERMODE_TRANSALPHA);CALLER.CartOwner=ACTIVATOR;ACTIVATOR.Cart=CALLER')
         lua_run1:SetKeyValue('targetname','luarun1')
         lua_run1:Spawn()
         
         local lua_run2 = ents.Create("lua_run")
-        lua_run2:SetKeyValue('Code','CALLER:SetColor(255,255,255,255);CALLER.CartOwner=nil;ACTIVATOR.Cart=nil')
+        lua_run2:SetKeyValue('Code','CALLER:SetColor(255,255,255,255);CALLER:SetRenderMode(RENDERMODE_TRANSALPHA);CALLER.CartOwner=nil;ACTIVATOR.Cart=nil')
         lua_run2:SetKeyValue('targetname','luarun2')
         lua_run2:Spawn()
         

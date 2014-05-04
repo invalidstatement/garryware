@@ -3,13 +3,15 @@ WARE.Author = "Kilburn"
 local function ResetFlashCrate(prop)
 	if not(prop and prop:IsValid()) then return end
 	
-	prop:SetColor(255,255,255,255)
+	prop:SetColor(Color(255,255,255,255))
+	prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 end
 
 local function FlashCrate(prop)
 	if not(prop and prop:IsValid()) then return end
 	
-	prop:SetColor(255,255,255,50)
+	prop:SetColor(Color(255,255,255,50))
+	prop:SetRenderMode(RENDERMODE_TRANSALPHA)
 	timer.Simple(0.45, function() ResetFlashCrate(prop) end)
 end
 

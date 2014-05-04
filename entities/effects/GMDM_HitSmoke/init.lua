@@ -48,7 +48,7 @@ function EFFECT:Init( data )
 				particle:SetStartSize( math.Rand( 1,2 ) )
 				particle:SetEndSize( 5 )
 				particle:SetRoll( 0 )
-				particle:SetColor( SurfaceColor.r, SurfaceColor.g, SurfaceColor.b )
+				particle:SetColor( Color(SurfaceColor.r, SurfaceColor.g, SurfaceColor.b) )
 				--particle:SetGravity( Vector( 0, 0, math.Rand( -200, -150 ) ) )
 				particle:SetAirResistance( 100 )
 				
@@ -85,7 +85,7 @@ function EFFECT:Init( data )
 				particle:SetBounce( 0.2 )
 				
 				if ( math.fmod( i, 2 ) == 0 ) then
-					particle:SetColor( 0, 0, 0 )
+					particle:SetColor( Color(0, 0, 0) )
 				end
 		
 		end

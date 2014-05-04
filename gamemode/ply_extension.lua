@@ -322,7 +322,8 @@ function meta:SimulateDeath( optvectPush, optiObjNumber )
 	
 	self._SimDead = true
 	
-	self:SetColor(255, 255, 255, 64)
+	self:SetColor(Color(255, 255, 255, 64))
+	self:SetRenderMode(RENDERMODE_TRANSALPHA)
 	self:CreateRagdoll( )
 	
 	if optvectPush then
@@ -341,7 +342,8 @@ function meta:RestoreDeath()
 	
 	self._SimDead = false
 	
-	self:SetColor(255, 255, 255, 255)
+	self:SetColor(Color(255, 255, 255, 255))
+	self:SetRenderMode(RENDERMODE_TRANSALPHA)
 	if self:GetRagdollEntity() then
 		self:GetRagdollEntity():Remove()
 		

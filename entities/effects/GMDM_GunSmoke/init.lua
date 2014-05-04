@@ -34,7 +34,7 @@ function EFFECT:Init( data )
 				particle:SetEndSize( math.Rand( 24, 64 ) )
 				particle:SetRoll( math.Rand( -25, 25 ) )
 				particle:SetRollDelta( math.Rand( -0.1, 0.1 ) )
-				particle:SetColor( LightColor.r, LightColor.g, LightColor.b )
+				particle:SetColor( Color(LightColor.r, LightColor.g, LightColor.b) )
 				
 	emitter:Finish()
 	
