@@ -188,8 +188,8 @@ function SWEP:GMDMShootBullet( dmg, snd, pitch, yaw, numbul, cone )
 		effectdata:SetAttachment( 1 )
 	util.Effect( "GMDM_GunSmoke", effectdata )
 	
-	--if ( SinglePlayer() and CLIENT ) then return end
-	--if ( not SinglePlayer() and SERVER ) then return end
+	--if ( game.SinglePlayer() and CLIENT ) then return end
+	--if ( not game.SinglePlayer() and SERVER ) then return end
 	
 	--util.ScreenShake( self.Owner:GetShootPos(), 100, 0.2, 0.5, 256 )
 	
@@ -278,7 +278,7 @@ function SWEP:NoteGMDMShot()
 	GMDMLastShoot = CurTime()
 	
 	-- No prediction in SP. Make sure it knows when we last shot.
-	if ( SinglePlayer() ) then
+	if ( game.SinglePlayer() ) then
 		self.Owner:SendLua( "GMDMLastShoot = CurTime()" )
 	end
 
