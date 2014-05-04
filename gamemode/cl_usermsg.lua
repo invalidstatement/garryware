@@ -91,7 +91,7 @@ local function EnableMusic( optiLoopToPlay )
 		gws_AmbientMusic_dat[optiLoopToPlay]._IsPlaying = true
 		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.1, 0 )
 		gws_AmbientMusic[optiLoopToPlay]:ChangePitch( GAMEMODE:GetSpeedPercent(), 0 )
-		timer.Simple( GAMEMODE.WADAT.StartFlourishLength * 0.7 , EnableMusicVolume, optiLoopToPlay )
+		timer.Simple( GAMEMODE.WADAT.StartFlourishLength * 0.7 , function() EnableMusicVolume(optiLoopToPlay) end )
 		
 	end
 	
