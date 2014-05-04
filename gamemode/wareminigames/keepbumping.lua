@@ -61,7 +61,7 @@ function WARE:Think( )
 	for _,ply in pairs(team.GetPlayers(TEAM_HUMANS)) do
 		if not GAMEMODE:PhaseIsPrelude() and not ply:GetLocked() then
 			local ent = ply:GetGroundEntity()
-			if ent == GetWorldEntity() then
+			if ent == game.GetWorld() then
 				ply:ApplyLose()
 				ply:SimulateDeath( Vector(0, 0, -1) * 10^3 )
 				ply:EjectWeapons( Vector(0, 0, 1) * 100, 120)
