@@ -29,9 +29,9 @@ function ENT:Draw()
 	
 	local lcolor = render.GetLightColor( self:GetPos() ) * 2
 	
-	lcolor.x = self.Color.r * mathx.Clamp( lcolor.x, 0, 1 )
-	lcolor.y = self.Color.g * mathx.Clamp( lcolor.y, 0, 1 )
-	lcolor.z = self.Color.b * mathx.Clamp( lcolor.z, 0, 1 )
+	lcolor.x = self.Color.r * math.Clamp( lcolor.x, 0, 1 )
+	lcolor.y = self.Color.g * math.Clamp( lcolor.y, 0, 1 )
+	lcolor.z = self.Color.b * math.Clamp( lcolor.z, 0, 1 )
 		
 	if ( vel:Length() > 1 ) then
 	
