@@ -107,9 +107,8 @@ function GM:CalcView( ply, origin, angle, fov )
 			self.FirstAngle = attachment.Ang
 			angle  = self.FirstAngle
 		elseif relativity < 0.7 then
-			if not attachment or not origin then return end
 			if not self.SecondAngle then 
-				self.SecondAngle = (attachment.Pos - origin):Normalize():Angle()
+				self.SecondAngle = (attachment.Pos - origin):GetNormal():Angle()
 			end
 			local multiplier = 1 + (relativity - 0.3) / 0.4
 			self.FirstAngle.p = math.ApproachAngle(self.FirstAngle.p, self.SecondAngle.p, SPECTATE_ANGLEINCREASE * multiplier)
