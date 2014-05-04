@@ -24,7 +24,7 @@ end
 
 function WARE:SwitchAllToNextColor( )
 	for k,prop in pairs(self.Props) do
-		if ValidEntity( prop ) then
+		if IsValid( prop ) then
 			self:SwitchToNextColor( prop )
 		end
 	end

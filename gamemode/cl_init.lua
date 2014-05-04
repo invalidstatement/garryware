@@ -9,11 +9,11 @@
 
 include( 'shared.lua' )
 
-surface.CreateFont("Trebuchet MS", 36, 0   , 0, false, "garryware_instructions" )
-surface.CreateFont("Trebuchet MS", 36, 0   , 0, false, "garryware_largetext" )
-surface.CreateFont("Trebuchet MS", 24, 0   , 0, false, "garryware_mediumtext" )
-surface.CreateFont("Trebuchet MS", 20, 0   , 0, false, "garryware_averagetext" )
-surface.CreateFont("Trebuchet MS", 16, 400 , 0, false, "garryware_smalltext" )
+surface.CreateFont("garryware_instructions", {font = "Trebuchet MS", size = 36, weight = 0})
+surface.CreateFont("garryware_largetext", {font = "Trebuchet MS", size = 36, weight = 0})
+surface.CreateFont("garryware_mediumtext", {font = "Trebuchet MS", size = 24, weight = 0})
+surface.CreateFont("garryware_averagetext", {font = "Trebuchet MS", size = 20, weight = 0})
+surface.CreateFont("garryware_smalltext", {font = "Trebuchet MS", size = 16, weight = 400})
 
 include( 'panel_warelabel.lua' )
 include( 'panel_arrow.lua' )
@@ -41,7 +41,7 @@ include( 'garbage_module.lua' )
 
 function WARE_SortTable( plyA, plyB )
 	if ( not(plyA) or not(plyB) ) then return false end
-	if ( not(ValidEntity(plyA)) or not(ValidEntity(plyB)) ) then return false end
+	if ( not(IsValid(plyA)) or not(IsValid(plyB)) ) then return false end
 	
 	local tokenA = plyA:GetAchieved() and (plyA:GetLocked() and (plyA:IsFirst() and 5 or 4) or 3) or (plyA:GetLocked() and (plyA:IsFirst() and 1 or 0) or 2)
 	local tokenB = plyB:GetAchieved() and (plyB:GetLocked() and (plyB:IsFirst() and 5 or 4) or 3) or (plyB:GetLocked() and (plyB:IsFirst() and 1 or 0) or 2)
@@ -64,7 +64,7 @@ end
 
 function WARE_SortTableStateBlind( plyA, plyB )
 	if ( not(plyA) or not(plyB) ) then return false end
-	if ( not(ValidEntity(plyA)) or not(ValidEntity(plyB)) ) then return false end
+	if ( not(IsValid(plyA)) or not(IsValid(plyB)) ) then return false end
 	
 	if ( plyA:Frags() == plyB:Frags() ) then
 		if ( plyA:GetBestCombo() == plyB:GetBestCombo() ) then

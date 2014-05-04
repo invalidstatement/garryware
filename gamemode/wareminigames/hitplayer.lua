@@ -37,8 +37,8 @@ end
 
 
 function WARE:EntityTakeDamage( ent, inflictor, attacker, amount )
-	if not ValidEntity( ent ) or not ent:IsPlayer() or not ent:IsWarePlayer() or ent:IsSimDead() then return end
-	if not ValidEntity( attacker ) or not attacker:IsPlayer() or not attacker:IsWarePlayer() or (not attacker:GetAchieved() and attacker:GetLocked()) then return end
+	if not IsValid( ent ) or not ent:IsPlayer() or not ent:IsWarePlayer() or ent:IsSimDead() then return end
+	if not IsValid( attacker ) or not attacker:IsPlayer() or not attacker:IsWarePlayer() or (not attacker:GetAchieved() and attacker:GetLocked()) then return end
 	
 	attacker:ApplyWin( )
 	attacker:SendHitConfirmation()

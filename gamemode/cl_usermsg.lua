@@ -203,10 +203,10 @@ local function EntityTextChangeColor( m )
 	local target = m:ReadEntity()
 	local r,g,b,a = m:ReadChar() + 128, m:ReadChar() + 128, m:ReadChar() + 128, m:ReadChar() + 128
 	
-	if ValidEntity(target) and target.SetEntityColor then
+	if IsValid(target) and target.SetEntityColor then
 		target:SetEntityColor(r,g,b,a)
 	else
-		timer.Simple( 0, function(target,r,g,b,a) if ValidEntity(target) and target.SetEntityColor then target:SetEntityColor(r,g,b,a) end end )
+		timer.Simple( 0, function(target,r,g,b,a) if IsValid(target) and target.SetEntityColor then target:SetEntityColor(r,g,b,a) end end )
 	end
 end
 usermessage.Hook( "EntityTextChangeColor", EntityTextChangeColor )
@@ -355,7 +355,7 @@ end
 usermessage.Hook( "HitConfirmation", HitConfirmation )
 
 local function DoRagdollEffect( ply, optvectPush, optiObjNumber, iIter)
-	if not ValidEntity( ply ) then return end
+	if not IsValid( ply ) then return end
 	
 	local ragdoll = ply:GetRagdollEntity()
 	if ragdoll then
@@ -391,7 +391,7 @@ local function PlayerRagdollEffect( m )
 	local optvectPush = m:ReadVector()
 	local optiObjNumber = m:ReadChar()
 	
-	if not ValidEntity( ply ) then return end
+	if not IsValid( ply ) then return end
 	
 	DoRagdollEffect( ply, optvectPush, optiObjNumber, 20)
 end

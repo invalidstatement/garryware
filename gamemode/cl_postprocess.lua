@@ -73,7 +73,7 @@ function GM:CalcView( ply, origin, angle, fov )
 		SPECTATE_ANGLEINCREASE = 7
 	end
 	
-	local hasRagdoll = ValidEntity( LocalPlayer():GetRagdollEntity() )
+	local hasRagdoll = IsValid( LocalPlayer():GetRagdollEntity() )
 	if hasRagdoll and (CurTime() < ( self.LastRagdollUndetect + SPECTATE_RAGDOLLTIME)) then -- Death Ragdoll
 		local ragdoll = LocalPlayer():GetRagdollEntity()
 		local attachment = ragdoll:GetAttachment( 1 )
@@ -164,7 +164,7 @@ function GM:CalcView( ply, origin, angle, fov )
 end
 
 function GM:GetMotionBlurValues( x, y, fwd, spin )
-	if( ValidEntity( LocalPlayer() ) and ( not LocalPlayer():IsOnGround() or LocalPlayer():KeyDown( IN_SPEED ) )) then
+	if( IsValid( LocalPlayer() ) and ( not LocalPlayer():IsOnGround() or LocalPlayer():KeyDown( IN_SPEED ) )) then
 		fwd = fwd * 5
 	end
 	

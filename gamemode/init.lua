@@ -494,7 +494,7 @@ end
 
 function GM:TryFindStuck()
 	for k,ply in pairs(team.GetPlayers( TEAM_HUMANS )) do
-		if ValidEntity(ply) then
+		if IsValid(ply) then
 			local plyPhys = ply:GetPhysicsObject()
 			if plyPhys:IsValid() and plyPhys ~= NULL then
 				if plyPhys:IsPenetrating() then

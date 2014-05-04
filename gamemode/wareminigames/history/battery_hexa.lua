@@ -188,7 +188,7 @@ function WARE:PropBreak(pl,prop)
 end
 
 local function PlugBatteryIn(batteryremove, socket)
-	if ( not ValidEntity(batteryremove) or not ValidEntity(socket) ) then return end
+	if ( not IsValid(batteryremove) or not IsValid(socket) ) then return end
 	
 	batteryremove:Remove()
 	

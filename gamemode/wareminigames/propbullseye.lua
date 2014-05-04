@@ -96,7 +96,7 @@ end
 
 function WARE:Think()
 	for k,ent in pairs(self.Bullseyes) do
-		if ValidEntity(ent) and ent:GetPhysicsObject():IsValid() then
+		if IsValid(ent) and ent:GetPhysicsObject():IsValid() then
 			local physobj = ent:GetPhysicsObject()
 			local vel = physobj:GetVelocity()
 			local speed = vel:Length()
@@ -110,7 +110,7 @@ end
 
 function WARE:WarePhysicsCollideStream( collide_ent, data, physobj )
 	if (collide_ent:GetClass() == "ware_bullseye") and (data.HitEntity:GetClass() == "prop_physics") then
-		if ValidEntity(data.HitEntity.LastPuntedBy) and data.HitEntity.LastPuntedBy:IsPlayer() then
+		if IsValid(data.HitEntity.LastPuntedBy) and data.HitEntity.LastPuntedBy:IsPlayer() then
 			data.HitEntity.LastPuntedBy:ApplyWin( )
 			data.HitEntity.LastPuntedBy:StripWeapons()
 		end
@@ -120,7 +120,7 @@ function WARE:WarePhysicsCollideStream( collide_ent, data, physobj )
 end
 
 function WARE:GravGunPickupAllowed( ply, target )
-	if ValidEntity(target) and target:GetClass() == "ware_bullseye" then
+	if IsValid(target) and target:GetClass() == "ware_bullseye" then
 		return false
 	else
 		return true
@@ -128,7 +128,7 @@ function WARE:GravGunPickupAllowed( ply, target )
 end
 
 function WARE:GravGunPunt( ply, target )
-	if ValidEntity(target) and target:GetClass() == "ware_bullseye" then
+	if IsValid(target) and target:GetClass() == "ware_bullseye" then
 		return false
 	else
 		return true

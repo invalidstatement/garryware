@@ -38,7 +38,7 @@ function ENT:PhysicsCollide( data, physobj )
 	if (data.Speed > 50 and data.DeltaTime > 0.2 ) then
 		self.Entity:EmitSound("Weapon_Crowbar.Melee_HitWorld", data.Speed/2)
 	end
-	if (data.Speed > 512 and ValidEntity(data.HitEntity)) then
+	if (data.Speed > 512 and IsValid(data.HitEntity)) then
 		if (data.HitEntity:IsPlayer() or data.HitEntity:IsNPC()) then
 		   self.Entity:EmitSound("weapons/hitbod1.wav", data.Speed*1.5)
 		end

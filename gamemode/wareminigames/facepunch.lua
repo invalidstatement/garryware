@@ -287,7 +287,7 @@ function WARE:Think()
 end
 
 function WARE:GravGunPickupAllowed( ply, target )
-	if ValidEntity(target) and target:GetClass() == "ware_bullseye" then
+	if IsValid(target) and target:GetClass() == "ware_bullseye" then
 		return false
 	else
 		return true
@@ -295,7 +295,7 @@ function WARE:GravGunPickupAllowed( ply, target )
 end
 
 function WARE:GravGunPunt( ply, target )
-	if ValidEntity(target) and target:GetClass() == "ware_bullseye" then
+	if IsValid(target) and target:GetClass() == "ware_bullseye" then
 		return false
 	else
 		return true

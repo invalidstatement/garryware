@@ -7,9 +7,9 @@
 // HUD and Stickers and Air Numbers (no VGUI) //
 ////////////////////////////////////////////////
 
-surface.CreateFont( "coolvetica", 48, 400, true, false, "WAREIns" ) 
-surface.CreateFont( "coolvetica", 36, 400, true, false, "WAREDom" )
-surface.CreateFont( "Verdana", 16, 400, true, false, "WAREScore" ) 
+surface.CreateFont("WAREIns", {font = "coolvetica", size = 48, weight = 400})
+surface.CreateFont("WAREDom", {font = "coolvetica", size = 36, weight = 400})
+surface.CreateFont("WAREScore", {font = "Verdana", size = 16, weight = 400})
 
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////

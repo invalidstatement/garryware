@@ -70,7 +70,7 @@ function ENT:OnTakeDamage( dmginfo )
 	self.Entity:TakePhysicsDamage( dmginfo )
 	
 	local ply = dmginfo:GetAttacker( )
-	if ValidEntity(ply) and ply:IsPlayer() and ply:IsWarePlayer() then
+	if IsValid(ply) and ply:IsPlayer() and ply:IsWarePlayer() then
 		ply:SendHitConfirmation( )
 		ply.BULLSEYE_Hit = (ply.BULLSEYE_Hit or 0) + 1
 	end
