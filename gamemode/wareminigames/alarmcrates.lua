@@ -100,7 +100,7 @@ function WARE:Think()
 	for _,v in pairs(self.Speakers) do
 		if v.AlarmSound and v.AlarmPitch then
 			v.AlarmPitch = v.AlarmPitch - 0.7
-			v.AlarmSound:ChangePitch(v.AlarmPitch)
+			v.AlarmSound:ChangePitch(v.AlarmPitch, 0)
 			
 			if v.AlarmPitch<=1 then
 				v.AlarmSound:Stop()
