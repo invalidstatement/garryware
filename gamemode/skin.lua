@@ -180,8 +180,6 @@ function SKIN:SchemeCancelButton( panel )
 	else
 		panel:SetTextColor( self.colButtonText )
 	end
-	
-	DLabel.ApplySchemeSettings( panel )
 
 end
 
@@ -194,8 +192,6 @@ function SKIN:SchemeSelectButton( panel )
 	else
 		panel:SetTextColor( self.colButtonText )
 	end
-	
-	DLabel.ApplySchemeSettings( panel )
 
 end
 
@@ -379,7 +375,6 @@ end
 function SKIN:SchemeGameNoticeLabel( panel )
 
 	panel:SetFont( "FRETTA_NOTIFY" )
-	DLabel.ApplySchemeSettings( panel )
 	
 end
 

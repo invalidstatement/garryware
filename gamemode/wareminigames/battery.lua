@@ -235,7 +235,7 @@ function WARE:Think()
 		local sphere = ents.FindInSphere(camera:GetPos(),24)
 		for _,target in pairs(sphere) do
 			if target:GetClass() == "prop_physics" then
-				target:GetPhysicsObject():ApplyForceCenter((target:GetPos() - camera:GetPos()):Normalize() * 500)
+				target:GetPhysicsObject():ApplyForceCenter((target:GetPos() - camera:GetPos()):GetNormalized() * 500)
 			end
 		end
 	end

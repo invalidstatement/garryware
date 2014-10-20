@@ -15,7 +15,7 @@ function ENT:Initialize()
 	phys:EnableDrag(true)
 	phys:SetMass(80)
 	phys:SetMaterial("crowbar")
-	phys:AddAngleVelocity(Angle(math.random(-600,600),math.random(-600,600),math.random(-600,600))) 
+	phys:AddAngleVelocity(Vector(math.random(-600,600),math.random(-600,600),math.random(-600,600))) 
 	if (phys:IsValid()) then
 		phys:Wake()
 	end

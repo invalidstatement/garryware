@@ -306,7 +306,7 @@ function meta:EjectWeapons( vectForce, fRandomness )
 			local physobj = weaponSim:GetPhysicsObject()
 			if physobj:IsValid() then
 				physobj:ApplyForceCenter( physobj:GetMass() * (vectForce or Vector(0,0,0) + VectorRand() * fRandomness) )
-				physobj:AddAngleVelocity( Angle(math.random(-128,128),math.random(-128,128),math.random(-128,128)) ) 
+				physobj:AddAngleVelocity( Vector(math.random(-128,128),math.random(-128,128),math.random(-128,128)) ) 
 			end
 			
 			GAMEMODE:AppendEntToBin( weaponSim )
