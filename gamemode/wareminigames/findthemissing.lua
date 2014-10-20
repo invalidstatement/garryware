@@ -58,6 +58,8 @@ function WARE:StartAction()
 end
 
 function WARE:EndAction()
+	self.MissingEnts = self.MissingEnts or {}
+
 	for k,v in pairs(self.MissingEnts) do
 		local missentpos = v:GetPos()
 		local box = ents.FindInBox(missentpos + Vector(-30,-30,0), missentpos + Vector(30,30,64))
