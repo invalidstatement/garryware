@@ -550,6 +550,7 @@ function GM:InitPostEntity( )
 	self.WareHaveStarted = false
 	self.ActionPhase = false
 	self.GameHasEnded = false
+	self.GameLength = self.GameLength or 0
 	
 	self.NextgameStart = CurTime() + 8
 	

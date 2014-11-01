@@ -154,7 +154,7 @@ function WARE:PropBreak(pl,prop)
 
 		local phys = ent:GetPhysicsObject()
 		phys:Wake()
-		phys:AddAngleVelocity(Angle(math.random(200,300),math.random(200,300),math.random(200,300)))
+		phys:AddAngleVelocity(Vector(math.random(200,300),math.random(200,300),math.random(200,300)))
 		phys:ApplyForceCenter(VectorRand() * 64)
 		
 		GAMEMODE:AppendEntToBin(ent)
