@@ -173,7 +173,7 @@ SKIN.PaintOverSelectButton = SKIN.PaintOverCancelButton
 
 function SKIN:SchemeCancelButton( panel )
 
-	panel:SetFont( "FRETTA_SMALL" )
+	--panel:SetFont( "FRETTA_SMALL" )
 	
 	if ( panel:GetDisabled() ) then
 		panel:SetTextColor( self.colButtonTextDisabled )
@@ -185,7 +185,7 @@ end
 
 function SKIN:SchemeSelectButton( panel )
 
-	panel:SetFont( "FRETTA_SMALL" )
+	--panel:SetFont( "FRETTA_SMALL" )
 	
 	if ( panel:GetDisabled() ) then
 		panel:SetTextColor( self.colButtonTextDisabled )
@@ -272,16 +272,19 @@ end
 ---------------------------------------------------------*/
 function SKIN:LayoutTeamScoreboardHeader( panel )
 
-	panel.TeamName:StretchToParent( 0, 0, 0, 0 )
-	panel.TeamName:SetTextInset( 8 )
-	panel.TeamName:SetColor( Color( 0, 0, 0, 220 ) )
-	panel.TeamName:SetFont( "FRETTA_MEDIUM" )
-	
-	panel.TeamScore:StretchToParent( 0, 0, 0, 0 )
-	panel.TeamScore:SetContentAlignment( 6 )
-	panel.TeamScore:SetTextInset( 8 )
-	panel.TeamScore:SetColor( Color( 0, 0, 0, 250 ) )
-	panel.TeamScore:SetFont( "FRETTA_MEDIUM" )
+	if panel and panel.TeamName ~= "" then
+
+		panel.TeamName:StretchToParent( 0, 0, 0, 0 )
+		panel.TeamName:SetTextInset( 8 )
+		panel.TeamName:SetColor( Color( 0, 0, 0, 220 ) )
+		panel.TeamName:SetFont( "FRETTA_MEDIUM" )
+		
+		panel.TeamScore:StretchToParent( 0, 0, 0, 0 )
+		panel.TeamScore:SetContentAlignment( 6 )
+		panel.TeamScore:SetTextInset( 8 )
+		panel.TeamScore:SetColor( Color( 0, 0, 0, 250 ) )
+		panel.TeamScore:SetFont( "FRETTA_MEDIUM" )
+	end
 
 end
 
@@ -312,14 +315,12 @@ end
 function SKIN:SchemeScorePanelHeaderLabel( panel )
 
 	panel:SetTextColor( Color( 70, 70, 70, 255 ) )
-	panel:SetFont( "HudSelectionText" )
-		
+	
 end
 
 function SKIN:SchemeSpectatorInfo( panel )
 
 	panel:SetTextColor( Color( 255, 255, 255, 255 ) )
-	panel:SetFont( "FRETTA_SMALL" )
 		
 end
 
@@ -373,8 +374,6 @@ function SKIN:PaintGameNotice( panel )
 end
 
 function SKIN:SchemeGameNoticeLabel( panel )
-
-	panel:SetFont( "FRETTA_NOTIFY" )
 	
 end
 
@@ -404,7 +403,6 @@ end
 function SKIN:SchemeGamemodeButton( panel )
 
 	panel:SetTextColor( color_white )
-	panel:SetFont( "FRETTA_MEDIUM_SHADOW" )
 	panel:SetContentAlignment( 4 )
 	panel:SetTextInset( 8 )
 
